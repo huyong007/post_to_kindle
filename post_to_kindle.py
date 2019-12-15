@@ -11,13 +11,34 @@ def _format_addr(s):
     return formataddr((Header(name,'utf-8').encode(),addr))
 
 # 输入Email地址和口令
+# 检查是否使用默认邮箱
+def check_email(email,type):
+    if (type =='from') and (email == ''):
+        print('当前发送邮箱为空，将使用默认邮箱:1341696804@qq.com')
+        return  '1341696804@qq.com'
+    if (type =='to') and (email == ''):
+        print('当前收件邮箱为空使用默认邮箱:huyong_huawei_kindle@kindle.cn')
+        return 'huyong_huawei_kindle@kindle.cn'
+    if (type =='server') and (email == ''):
+        print('SMTP server为空将使用默认qqSMTP协议')
+        return 'smtp.qq.com'
+# 输入发送邮箱
 from_addr = input('From: ')
-password = input('Password: ')
+from_addr =check_email(from_addr,'from')
+def input_pwd():
+    password = input('Password: ')
+    if password == '':
+        return input_pwd()
+    else:
+        return password
+password = input_pwd()
+
 # 输入收件人地址：
 to_addr = input('To: ')
+to_addr = check_email(to_addr,'to')
 # 输入SMTP服务器地址
 smtp_server = input('SMTP server: ')
-
+smtp_server = check_email(smtp_server,'server')
 # 邮件对象
 msg  = MIMEMultipart()
 msg['From'] = _format_addr('Python爱好者<%s>'%from_addr)
