@@ -1,7 +1,11 @@
-with open('pi_digits.txt') as file_object:
-    lines = file_object.readlines()
-pi_string = ''
-for line in lines:
-    pi_string+=line.rstrip()
-print(pi_string)
-print(len(pi_string))
+filename = 'AliceinWonderland.txt'
+
+try:
+    with open('book/'+filename) as book:
+        contents = book.read()
+except FileNotFoundError as identifier:
+    msg = 'Sorry,the filename not exist'
+    print(msg)
+else:
+    words = contents.split()
+    print('then file'+filename+'has about ' +str(len(words))+'words.')

@@ -1,0 +1,10 @@
+Kindle格式（.MOBI、.AZW）
+Microsoft Word（.DOC、.DOCX）
+HTML（.HTML、.HTM）
+RTF (.RTF)
+文本(.TXT)
+JPEG（.JPEG、.JPG）
+GIF (.GIF)
+PNG (.PNG)
+BMP (.BMP)
+PDF (.PDF)
